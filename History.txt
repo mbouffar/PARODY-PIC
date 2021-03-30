@@ -1,0 +1,107 @@
+Parody History:
+---------------
+
+This code is the result of a team work, with contributions         
+from many developpers. These are listed below.                     
+                                                                       
+  1995-1996 : E.Dormy,              Linear convection with rapid       
+                                    rotation.                          
+                                                                       
+  1996-1997 : P.Cardin, E.Dormy,    Non-linear convection and          
+                                    MHD Couette problem.               
+
+  2000      : J.Aubert, P.Cardin,   Dynamo benchmark.                  
+              E.Dormy,                                                 
+                                                                       
+  2000      : E.Dormy, P.Stoclet,   Parallelisation strategy is        
+                                    identified and implemented by      
+                                    Stoclet in the convection problem. 
+                                                                       
+  2005      : J.Aubert, E.Dormy,    Non-linear terms are optimised     
+              V.Morin,              by a huge factor through direct    
+                                    comparison with the MAGIC code     
+                                    Legendre transform (Glatzmaier,    
+                                    Christensen, Wicht), and the use   
+                                    of FFT99.                          
+                                    The code is ported to F90 and uses 
+                                    dynamical allocation.              
+              J.Aubert, V.Morin     Adaptative timestepping is         
+                                    implemented based on MAGIC.        
+              J.Aubert, E.Dormy,    The code is parallelised following 
+                                    the 2000 Dormy-Stoclet strategy.   
+                                                                       
+  2006      : P.Cardin,             The spherical Couette problem is   
+                                    re-implemented in the 3D code.    
+                                                                       
+  2006      : J.Aubert, E.Dormy,    The code is modified to run on     
+                                    various platforms and to treat     
+                                    different problems using complier  
+                                    directives.                        
+                                                                       
+  2006      : L.Goudard, E.Dormy,   Stress-free boundary conditions    
+                                    are implemented.                   
+                                    Non-linearities are corrected on  
+                                    the boundary shells.               
+                                                                       
+  2006      : J.Aubert,             Graphic files are implemented in   
+                                    parody and a matlab routine        
+                                    (parodyload) is provided .         
+                                    Chemical convection is implemented.
+
+-----------------------------------------------------------------------
+  JA-x.x versions fork here
+  
+  2006      : JA1.4, J.Aubert       Standard user interface outputs, 
+				    Buoyancy driving modes.
+                                    Auto-resubmit system.
+                                    openMP parallel scheme on spectral transforms
+
+  2007      : JA1.5, J. Aubert      Stable recurrence for high degree Legendre polynomials calculation
+				    corrected a bug in magnetic dissipation length calculation
+
+              JA1.6, J. Aubert      Added IC T/ OC flux boundary condition
+				    Added heterogeneous thermal mantle control
+
+  2008        JA1.7, J. Aubert      Added gravitational coupling between mantle and inner core
+	      
+	      JA1.8, J. Aubert	    Low-level optimization for faster (+30%) sequential execution
+                                    and even faster parallel execution on 8-core cluster nodes
+
+  2009	      JA2.0, J. Aubert      Earth-like compliance data added according to Christensen/Aubert 2010
+				    dipole data up to degree 12 added in dipole.tag output file
+				    linear convection onset problem is back into parody.
+			  	    Average fields data file 'Dave' to define average state for assimilation
+				    Output of the time average magnetic torque in the fluid shell
+	             E. Dormy	    Stable recurrence for arbitrarily high degree Legendre polynomials
+  
+  2010        JA2.1, J. Aubert      Added an option to write surface graphic files
+			            Added an option to compute with a fixed time step
+				    Added a subroutine 'lecture_matlab' for reading matlab-generated D files
+				    Corrected a bug in restart routine for reading fields when Mmin>0
+
+
+  2010        JA2.2, J. Aubert      Added the possibility of a completely full sphere (Aspect_ratio=0)
+				    Corrected a bug introduced earlier in stress-free boundary conditions
+			            Rewrote angular momentum conservation in stress-free and insulating IC
+
+  2012        JA2.3, J. Aubert      New parallel scheme for analysis (spat -> spec) with better scaling
+				    Implemented Mantle Control on driving mode 3 (thermochemical)
+                                    Removed the useless average Data file
+				    corrected a few syntax problems for cross-platform compatibility
+				    Several important bug corrections:
+                                    - corrected a bug in synthesis (spec -> spat) introduced by JA1.8
+				    - corrected a bug in energy output
+	  			    - corrected a bug in magnetic boundary conditions
+				    
+-----------------------------------------------------------------------
+  2012 JA-x.x_AFmod version 
+			 
+              JA2.3_AFmod
+                    A. Fournier	    Rearrangement of the code in a slightly more modular
+                                    fashion, to enable subsequent application of the 
+                                     parallel data assimilation framework (PDAF).
+
+-----------------------------------------------------------------------
+  2017 Parody-PIC version
+
+		M. Bouffard	    Implementation of a particle-in-cell (PIC) method   
